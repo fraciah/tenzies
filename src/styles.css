@@ -1,0 +1,68 @@
+*{
+    background-color: rgba(88, 87, 87, 0.5);
+    font-family: cursive;
+}
+.tenzies-text{
+    text-align: center;
+}
+.title{
+    color: rgb(110, 207, 110);
+}
+.instructions{
+    color: white;
+    font-size: 20px;
+}
+.no-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin: 10px 130px;
+}
+.no{
+    cursor: pointer;
+    margin: 12px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 17px;
+    font-size: 22px;
+    font-weight: bold;
+}
+.btn{
+    background-color: rgb(110, 207, 110);
+    border-radius: 10px;
+    border: none;
+    padding: 15px 25px;
+    font-size: 25px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: rgb(70, 141, 70);
+    transition-duration: 0.5s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.btn:active{
+    transform: translateY(8px);
+}
+.extras{
+    display: flex;
+    justify-content: space-between;
+}
+h3{
+    color: rgb(110, 207, 110);
+}
+.extras-item{
+    color: azure;
+}
+.app{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 500px;
+    width: 700px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgb(88, 87, 87);
+    /* background-color: pink; */
+};
