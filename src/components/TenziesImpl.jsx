@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import Confetti from 'react-confetti'
 import PropTypes from 'prop-types';
 
-export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime }){
+export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime, setBestTime }){
     const [nos, setNos] = useState(generateRandomNos());
     const [startTime, setStartTime] = useState(null)
 
@@ -24,9 +24,16 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime }){
         const allSame = nos.every(no => no.value === nos[0].value);
         if(allFlipped && allSame){
             setWonGame(true)
-            setTime((Date.now() - startTime) / 1000);
+            const timeTaken = (Date.now() - startTime) / 1000;
+            setTime(timeTaken);
+            setBestTime(prevBestTime => {
+                if(!prevBestTime || timeTaken < prevBestTime){
+                    return timeTaken;
+                } 
+                return prevBestTime;
+             });
         }
-    },[nos, setWonGame, setTime, startTime])
+    },[nos, setWonGame, setTime, startTime, setBestTime])
 
     useEffect(()=> {
         if(startTime && !wonGame){
@@ -105,5 +112,6 @@ TenziesImpl.propTypes = {
     wonGame: PropTypes.bool.isRequired,
     setWonGame: PropTypes.func.isRequired,
     setRolls: PropTypes.func.isRequired,
-    setTime: PropTypes.func.isRequired
+    setTime: PropTypes.func.isRequired,
+    setBestTime: PropTypes.func.isRequired
 }
