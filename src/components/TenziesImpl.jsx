@@ -2,8 +2,9 @@ import { useState,useEffect } from "react";
 import Confetti from 'react-confetti'
 import PropTypes from 'prop-types';
 
-export function TenziesImpl({ wonGame, setWonGame, setRolls }){
+export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime }){
     const [nos, setNos] = useState(generateRandomNos());
+    const [startTime, setStartTime] = useState(null)
 
     // generating random numbers
     function generateRandomNos(){
@@ -23,11 +24,24 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls }){
         const allSame = nos.every(no => no.value === nos[0].value);
         if(allFlipped && allSame){
             setWonGame(true)
+            setTime((Date.now() - startTime) / 1000);
         }
-    },[nos, setWonGame])
+    },[nos, setWonGame, setTime, startTime])
+
+    useEffect(()=> {
+        if(startTime && !wonGame){
+            const intervalId = setInterval(() => {
+                setTime((Date.now() - startTime) / 1000);
+            },1000);
+            return () => clearInterval(intervalId);
+        }
+    },[setTime, startTime, wonGame])
 
     function flipNo(e){
         let id = e.target.id;
+        if(!startTime){
+            setStartTime(Date.now())
+        }
         setNos(prevNos => {
             return prevNos.map(no => {
                 if(no.id === id){
@@ -42,6 +56,8 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls }){
     function resetGame(){
         setWonGame(false)
         setNos(generateRandomNos())
+        setStartTime(null);
+        setTime(0);
     }
     
     return(
@@ -76,7 +92,7 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls }){
                                     return no
                                 })
                             });
-                            setRolls(prevRollCount => prevRollCount + 1);
+                            setRolls(prevRollCount => prevRollCount + 1);//incrementing the rolls after a click
                         }
                     }}>
                     {wonGame? "New Game" : "Roll"}
@@ -88,5 +104,6 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls }){
 TenziesImpl.propTypes = {
     wonGame: PropTypes.bool.isRequired,
     setWonGame: PropTypes.func.isRequired,
-    setRolls: PropTypes.func.isRequired
+    setRolls: PropTypes.func.isRequired,
+    setTime: PropTypes.func.isRequired
 }

@@ -7,6 +7,7 @@ import './styles.css'
 function App() {
     const [wonGame, setWonGame] =  useState(false) 
     const [rolls, setRolls] = useState(0);
+    const [time, setTime] = useState(0);
 
   return (
     <>
@@ -14,9 +15,10 @@ function App() {
         <TenziesText/>
         <TenziesImpl wonGame={wonGame}
                      setWonGame={setWonGame}
-                     setRolls={setRolls}/>
+                     setRolls={setRolls}
+                     setTime={setTime}/>
         <Extras rolls={rolls} 
-                setRolls={setRolls}/>
+                time={time}/>
       </div>
     </>
   )
