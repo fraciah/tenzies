@@ -1,8 +1,3 @@
-# React + Vite
+# Tenzies game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A game built using React that generates random numbers and allows the user to flip them. The objective of the game is to flip all the numbers so that they have the same value. The game tracks the number of rolls and displays the time taken to win the game in minutes and seconds. The best time to win the game is saved and displayed to the user. 
