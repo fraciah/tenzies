@@ -15,11 +15,7 @@ export function Extras({ rolls, time, bestTime }) {
                 <h3>Best time: <span className="extras-item">{`${bestMinutes}m ${bestSeconds}s`}</span></h3>
             </div>
             <div className="tag-container">
-<<<<<<< HEAD
-                <a href="https://github.com/fraciah?tab=repositories" className="tag" target="blank" rel="noopener noreferrer">Crafted with 💖 by Fraciah</a>
-=======
                 <a href="https://github.com/fraciah?tab=repositories" className="tag" target="blank">Crafted with 💖 by Fraciah</a>
->>>>>>> e19e7df39177a0720fbbefdd1480f0656d801aa0
             </div>
         </>
     )
