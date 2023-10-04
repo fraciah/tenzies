@@ -24,6 +24,7 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime, setBestTim
         const allSame = nos.every(no => no.value === nos[0].value);
         if(allFlipped && allSame){
             setWonGame(true)
+            //calculating time taken to win the game
             const timeTaken = (Date.now() - startTime) / 1000;
             setTime(timeTaken);
             setBestTime(prevBestTime => {
@@ -36,7 +37,9 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime, setBestTim
     },[nos, setWonGame, setTime, startTime, setBestTime])
 
     useEffect(()=> {
+        //check if the game has started and it is not won> if both are truthy
         if(startTime && !wonGame){
+            //interval to update the time every second
             const intervalId = setInterval(() => {
                 setTime((Date.now() - startTime) / 1000);
             },1000);

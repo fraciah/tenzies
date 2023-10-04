@@ -48,6 +48,17 @@
     display: flex;
     justify-content: space-between;
 }
+.tag-container{
+    text-align: center;
+}
+.tag{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+.tag:hover{
+    text-decoration: underline;
+}
 h3{
     color: rgb(110, 207, 110);
 }
