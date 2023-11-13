@@ -1,55 +1,83 @@
 *{
-    background-color: rgba(88, 87, 87, 0.5);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.tenzies-text{
-    text-align: center;
+body{
+    background-color: rgba(88, 87, 87, 0.5);
 }
-.title{
+.title, h3{
     color: rgb(110, 207, 110);
 }
+
+/* TenziesText */
+.tenzies-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .instructions{
-    color: white;
-    font-size: 20px;
+    margin: 0px;
+    text-align: center;
+    font-size: 18px;
+    color: azure;
+    letter-spacing: 1px;
+}
+
+/* TenziesImpl */
+.tenzies-impl{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
 }
 .no-container{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    margin: 10px 130px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;  
+    padding: 30px;
 }
 .no{
-    cursor: pointer;
-    margin: 12px;
-    text-align: center;
     border-radius: 5px;
-    padding: 17px;
+    padding: 13px 23px;
     font-size: 22px;
     font-weight: bold;
+    cursor: pointer;
+    background-color: azure;
 }
 .btn{
-    background-color: rgb(110, 207, 110);
+    padding: 15px 20px;
     border-radius: 10px;
     border: none;
-    padding: 15px 25px;
-    font-size: 25px;
-    display: block;
-    margin: 0 auto;
+    font-size: 20px;
     cursor: pointer;
+    transition-duration: 0.5s;
+    background-color: rgb(110, 207, 110);
 }
 .btn:hover{
-    background-color: rgb(70, 141, 70);
-    transition-duration: 0.5s;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: rgb(110, 207, 110, 0.8);
 }
 .btn:active{
     transform: translateY(8px);
 }
+
+/* Extras */
+.extras-container{
+    display: flex;
+    flex-direction: column;
+}
 .extras{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
 }
-.tag-container{
-    text-align: center;
+.extras-item{
+    color: azure;
+}
+.tag-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .tag{
     text-decoration: none;
@@ -59,21 +87,54 @@
 .tag:hover{
     text-decoration: underline;
 }
-h3{
-    color: rgb(110, 207, 110);
-}
-.extras-item{
-    color: azure;
-}
+
 .app{
+    position: absolute;
     top: 50%;
     left: 50%;
-    position: absolute;
     transform: translate(-50%, -50%);
-    height: 500px;
     width: 700px;
-    padding: 40px;
+    padding: 15px 40px;
     border-radius: 10px;
-    background-color: rgb(88, 87, 87);
-    /* background-color: pink; */
-};
+    background-color: rgba(88, 87, 87);
+}
+
+@media screen and (max-width: 600px) {
+    .title{
+        text-align: center;
+        font-size: 30px;
+    }
+    .instructions{
+        font-size: 13px;
+    }
+    .no-container {
+        gap: 5px;  
+        padding: 10px;
+    }
+    .no{
+        border-radius: 5px;
+        padding: 8px 15px;
+        font-size: 15px;
+    }
+    .btn{
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+    .extras{
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    h3{
+        font-size: 13px;
+        margin-bottom: 0px;
+    }
+    .tag{
+        font-size: 13px;
+    }
+    .app {
+        padding: 10px 15px;
+        width: 90%; 
+    }
+}
