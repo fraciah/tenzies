@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { TenziesText } from './components/TenziesText'
-import { TenziesImpl } from './components/TenziesImpl'
-import { Extras } from './components/Extras'
+import  TenziesText  from './components/TenziesText'
+import  TenziesImpl  from './components/TenziesImpl'
+import  Extras  from './components/Extras'
 import './styles.css' 
 
 function App() {

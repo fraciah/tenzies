@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export function Extras({ rolls, time, bestTime }) {
+const Extras = ({ rolls, time, bestTime }) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
 
@@ -20,9 +20,9 @@ export function Extras({ rolls, time, bestTime }) {
         </>
     )
 }
+export default Extras;
 Extras.propTypes = {
     rolls: PropTypes.number.isRequired,
-    setRolls: PropTypes.func.isRequired,
     time: PropTypes.number.isRequired,
     bestTime: PropTypes.number.isRequired
 }

@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import Confetti from 'react-confetti'
 import PropTypes from 'prop-types';
 
-export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime, setBestTime }){
+const TenziesImpl = ({ wonGame, setWonGame, setRolls, setTime, setBestTime }) => {
     const [nos, setNos] = useState(generateRandomNos());
     const [startTime, setStartTime] = useState(null)
 
@@ -111,6 +111,8 @@ export function TenziesImpl({ wonGame, setWonGame, setRolls, setTime, setBestTim
         </>
     )
 }
+export default TenziesImpl;
+
 TenziesImpl.propTypes = {
     wonGame: PropTypes.bool.isRequired,
     setWonGame: PropTypes.func.isRequired,

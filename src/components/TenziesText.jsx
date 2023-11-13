@@ -1,4 +1,4 @@
-export function TenziesText() {
+const TenziesText = () => {
   return (
     <>
       <div className="tenzies-text">
@@ -8,3 +8,4 @@ export function TenziesText() {
     </>
   )
 }
+export default TenziesText;
