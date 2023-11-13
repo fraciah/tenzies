@@ -25,7 +25,6 @@ function App() {
     },[bestTime])
 
   return (
-    <>
       <div className="app">
         <TenziesText/>
         <TenziesImpl wonGame={wonGame}
@@ -37,7 +36,6 @@ function App() {
                 time={time}
                 bestTime={bestTime}/>
       </div>
-    </>
   )
 }
 
